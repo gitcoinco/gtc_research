@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from './Header';
+import { Hero } from './Hero';
 import { BalanceSection } from './BalanceSection';
 import { UtilitySection } from './UtilitySection';
 import { FeatureCards } from './FeatureCards';
@@ -7,7 +7,7 @@ import { FeatureCards } from './FeatureCards';
 const GTCMainComponent: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white shadow rounded-lg">
-      <Header />
+      <Hero />
       <BalanceSection />
       <UtilitySection />
       <FeatureCards />
