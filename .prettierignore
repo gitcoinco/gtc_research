@@ -1,0 +1,33 @@
+# Ignore artifacts:
+node_modules
+.next
+out
+dist
+
+# Ignore build and temporary files:
+build
+coverage
+.DS_Store
+*.log
+
+# Ignore generated files:
+*.min.js
+*.bundle.js
+*.map
+
+# Ignore specific file types:
+*.lock
+*.snap
+*.svg
+
+# Ignore ESLint cache:
+.eslintcache
+
+# Ignore environment variable files:
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+pnpm-lock.yaml
