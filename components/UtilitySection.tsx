@@ -7,6 +7,7 @@ import {
   CardFooter,
 } from './ui/card';
 import { Button } from './ui/button';
+import Link from 'next/link';
 
 export const UtilitySection: React.FC = () => {
   return (
@@ -25,7 +26,9 @@ export const UtilitySection: React.FC = () => {
             </p>
           </CardContent>
           <CardFooter>
-            <Button variant="default">Govern Gitcoin</Button>
+            <Button variant="default" asChild>
+              <Link href="https://gov.gitcoin.co/">Govern Gitcoin</Link>
+            </Button>
           </CardFooter>
         </Card>
         <Card>
@@ -40,7 +43,9 @@ export const UtilitySection: React.FC = () => {
             <p>One day, earn rewards for doing so.</p>
           </CardContent>
           <CardFooter>
-            <Button variant="default">Stake Passport</Button>
+            <Link href="https://passport.gitcoin.co/#/" passHref>
+              <Button variant="default">Stake Passport</Button>
+            </Link>
           </CardFooter>
         </Card>
         <Card>
