@@ -5,18 +5,20 @@ import { Card, CardContent } from './ui/card';
 import { useQuery } from '@tanstack/react-query';
 import { getAddressBalance } from '@/services/balanceService';
 import { convertBalance, ellipsisAddress } from '@/lib/utils';
-
-type Address = `0x${string}`;
+import { Address } from 'viem';
+import { useAccount } from 'wagmi';
 
 export const BalanceSection: React.FC = () => {
-  const address: Address =
-    '0x63A32F1595a68E811496D820680B74A5ccA303c5' as const;
+  const { address, isConnecting, isDisconnected } = useAccount();
+
   const { isPending, error, data } = useQuery({
     queryKey: ['balance', address],
-    queryFn: () => getAddressBalance(address),
+    queryFn: () => getAddressBalance(address as Address),
   });
-  if (isPending) return 'Loading...';
 
+  if (isConnecting) return <div>Connecting...</div>;
+  if (isDisconnected) return <div>No wallet connected</div>;
+  if (isPending) return 'Loading...';
   if (error) return 'An error has occurred: ' + error.message;
   console.log('data?.toString()', data?.value.toString());
   const balanceGTC = data ? convertBalance(data?.value).toFixed(3) : 0;
@@ -26,7 +28,7 @@ export const BalanceSection: React.FC = () => {
       <Card className="bg-gray-100">
         <CardContent>
           <p className="text-lg font-semibold">
-            {ellipsisAddress(address)} has
+            {ellipsisAddress(address as Address)} has
           </p>
           <p className="text-lg">{balanceGTC} GTC total</p>
           <p className="text-lg">0 GTC staked</p>
