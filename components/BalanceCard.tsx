@@ -27,6 +27,7 @@ export default function BalanceCard() {
   if (error) return 'An error has occurred: ' + error.message;
 
   const balanceGTC = data ? convertBalance(data?.value).toFixed(3) : 0;
+
   return (
     <Card className="bg-gray-100">
       <CardContent>
