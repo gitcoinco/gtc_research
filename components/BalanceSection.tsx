@@ -20,7 +20,7 @@ export const BalanceSection: React.FC = () => {
   if (isDisconnected) return <div>No wallet connected</div>;
   if (isPending) return 'Loading...';
   if (error) return 'An error has occurred: ' + error.message;
-  console.log('data?.toString()', data?.value.toString());
+
   const balanceGTC = data ? convertBalance(data?.value).toFixed(3) : 0;
 
   return (
