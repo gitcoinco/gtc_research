@@ -3,7 +3,13 @@ import { getAddressBalance } from '@/services/balanceService';
 import { convertBalance, ellipsisAddress } from '@/lib/utils';
 import { Address } from 'viem';
 import { useAccount } from 'wagmi';
-import { Card, CardContent } from './ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from './ui/card';
 export default function BalanceCard() {
   const { address, isConnecting, isDisconnected } = useAccount();
 
@@ -29,14 +35,14 @@ export default function BalanceCard() {
   const balanceGTC = data ? convertBalance(data?.value).toFixed(3) : 0;
 
   return (
-    <Card className="bg-gray-100">
-      <CardContent>
-        <p className="text-lg font-semibold">
-          {ellipsisAddress(address as Address)} has
-        </p>
-        <p className="text-lg">{balanceGTC} GTC total</p>
-        <p className="text-lg">0 GTC staked</p>
-      </CardContent>
+    <Card>
+      <CardHeader>
+        <CardTitle>{ellipsisAddress(address as Address)} has</CardTitle>
+        <CardDescription>
+          <p className="text-lg">{balanceGTC} GTC total</p>
+          <p className="text-lg">0 GTC staked</p>
+        </CardDescription>
+      </CardHeader>
     </Card>
   );
 }
