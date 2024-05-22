@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
@@ -9,10 +10,12 @@ export default function Header() {
         <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
           <Link href={'/'}>
             <div className="flex items-center">
-              <img
+              <Image
                 className="py-4 mr-4"
                 alt="Gitcoin Logo"
                 src="../gitcoin-logo.svg"
+                width={27}
+                height={32}
               />
               <span className="border border-gitcoin-separator h-8 mx-4"></span>
               <span className="text-2xl text-black font-semibold">

@@ -13,6 +13,7 @@ import {
   CardFooter,
   Card,
 } from './ui/card';
+import Link from 'next/link';
 
 export default function GtcTokenCenter() {
   return (
@@ -24,9 +25,11 @@ export default function GtcTokenCenter() {
           Gitcoin network. With the GTC Token Center, you can manage your GTC
           balance and the benefits that come with it.
         </p>
-        <Button className="mt-4" variant="secondary">
-          Learn more
-        </Button>
+        <Link href="https://www.gitcoin.co/gtc" passHref>
+          <Button className="mt-4" variant="secondary">
+            Learn more
+          </Button>
+        </Link>
       </div>
       <BalanceSection />
       <div className="mt-16">
@@ -44,7 +47,9 @@ export default function GtcTokenCenter() {
               </CardDescription>
             </CardHeader>
             <CardFooter>
-              <Button>Govern Gitcoin</Button>
+              <Link href="https://gov.gitcoin.co" passHref>
+                <Button>Govern Gitcoin</Button>
+              </Link>
             </CardFooter>
           </Card>
           <Card className="w-full">
@@ -56,7 +61,9 @@ export default function GtcTokenCenter() {
               </CardDescription>
             </CardHeader>
             <CardFooter>
-              <Button>Stake Passport</Button>
+              <Link href="https://staking.passport.gitcoin.co/" passHref>
+                <Button>Stake Passport</Button>
+              </Link>
             </CardFooter>
           </Card>
           <Card className="w-full">
@@ -68,7 +75,7 @@ export default function GtcTokenCenter() {
               </CardDescription>
             </CardHeader>
             <CardFooter>
-              <Button>Stake on Grants</Button>
+              <Button variant="outline">Coming soon</Button>
             </CardFooter>
           </Card>
           <Card className="w-full">
