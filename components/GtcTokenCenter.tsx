@@ -69,14 +69,11 @@ export default function GtcTokenCenter() {
           <Card className="w-full">
             <CardHeader>
               <CardTitle>Grants Staking</CardTitle>
-              <CardDescription>
-                Stake GTC on ecological Grants to unlock more features in
-                Gitcoin Grants, including 0% fees, special badges, x, y, and z.
-              </CardDescription>
+              <CardDescription>Coming soon...</CardDescription>
             </CardHeader>
-            <CardFooter>
-              <Button variant="outline">Learn more</Button>
-            </CardFooter>
+            {/* <CardFooter>
+              <Button variant="outline">Coming soon</Button>
+            </CardFooter> */}
           </Card>
           <Card className="w-full">
             <CardHeader>
