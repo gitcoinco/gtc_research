@@ -75,7 +75,7 @@ export default function GtcTokenCenter() {
               </CardDescription>
             </CardHeader>
             <CardFooter>
-              <Button variant="outline">Coming soon</Button>
+              <Button variant="outline">Learn more</Button>
             </CardFooter>
           </Card>
           <Card className="w-full">
