@@ -13,6 +13,9 @@ import {
   sepolia,
 } from 'wagmi/chains';
 import { getDefaultConfig, RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import { initPosthog } from '../lib/posthog';
+import { PostHogProvider } from 'posthog-js/react';
+const posthog = initPosthog();
 
 const config = getDefaultConfig({
   appName: 'RainbowKit App',
@@ -27,18 +30,20 @@ const config = getDefaultConfig({
   ],
   ssr: true,
 });
+//test
 
 const client = new QueryClient();
-
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <WagmiProvider config={config}>
-      <QueryClientProvider client={client}>
-        <RainbowKitProvider>
-          <Component {...pageProps} />
-        </RainbowKitProvider>
-      </QueryClientProvider>
-    </WagmiProvider>
+    <PostHogProvider client={posthog}>
+      <WagmiProvider config={config}>
+        <QueryClientProvider client={client}>
+          <RainbowKitProvider>
+            <Component {...pageProps} />
+          </RainbowKitProvider>
+        </QueryClientProvider>
+      </WagmiProvider>
+    </PostHogProvider>
   );
 }
 
